@@ -1,3 +1,8 @@
 {
-    "brawlers": []
+  "brawlers": [
+    {
+      "name": "Dark Tower",
+      "id": 1
+    }
+  ]
 }

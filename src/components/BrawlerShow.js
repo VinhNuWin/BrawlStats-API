@@ -1,20 +1,21 @@
 import { useState } from 'react';
-import BrawlerEdit from './BrawlerEdit'
+import BrawlerEdit from './BrawlerEdit';
+import useBrawlerContext from '../hooks/use-brawlers-context';
 
-function BrawlerShow({ brawler, onDelete, onEdit }) {
+function BrawlerShow({ brawler }) {
     const [showEdit, setShowEdit] = useState(false);
+    const { deleteBrawlerById } = useBrawlerContext();
 
     const handleDeleteClick = () => {
-        onDelete(brawler.id);
+        deleteBrawlerById(brawler.id);
     };
 
     const handleEditClick = () => {
         setShowEdit(!showEdit);
     };
 
-    const handleSubmit = (id, newName) => {
+    const handleSubmit = () => {
         setShowEdit(false);
-        onEdit(id, newName)
     };
 
     let content = <h3>{brawler.name}</h3>;

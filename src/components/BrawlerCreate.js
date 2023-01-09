@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import useBrawlerContext from '../hooks/use-brawlers-context';
 
-
-function BrawlerCreate({ onCreate }) {
+function BrawlerCreate() {
     const [name, setName] = useState('');
+    const { createBrawler } = useBrawlerContext();
 
     const handleChange = (event) => {
         setName(event.target.value);
@@ -10,7 +11,7 @@ function BrawlerCreate({ onCreate }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onCreate(name);
+        createBrawler(name);
         setName('')
     };
 

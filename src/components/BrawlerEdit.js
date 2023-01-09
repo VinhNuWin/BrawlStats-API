@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import useBrawlerContext from '../hooks/use-brawlers-context';
 
 function BrawlerEdit({ brawler, onSubmit }) {
     const [name, setName] = useState(brawler.name);
+    const { editBrawlerById } = useBrawlerContext();
 
     const handleChange = (event) => {
         setName(event.target.value);
@@ -10,7 +12,8 @@ function BrawlerEdit({ brawler, onSubmit }) {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        onSubmit(brawler.id, name);
+        onSubmit();
+        editBrawlerById(brawler.id, name);
     };
 
     return (
