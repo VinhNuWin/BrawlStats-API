@@ -1,22 +1,52 @@
-import { useState } from 'react';
 import React from "react";
-import searchBrawler from './api';
+import youtube from "./apis/youtube";
 import SearchBar from "./component/SearchBar";
+import axios from 'axios';
+import BrawlerDetail from './component/BrawlerDetail';
 
-function App() {
-  const [image, setImages] = useState('');
+class App extends React.Component {
+  state = { brawlers: null, selectedBrawler: null };
 
-  const handleFormOnSubmit = async (term) => {
-    const results = await searchBrawler(term);
+  componentDidMount() {
+    this.onTermSubmit();
 
-    setImages(results)
+    // console.log()
   }
 
-  return (
-    <div>
-      <SearchBar onSubmit={handleFormOnSubmit} />
-    </div>
-  );
-}
+  // onTermSubmit = async term => {
+  //   const response = await youtube.get('/search', {
+  //       params: {
+  //           q: term
+  //       }
+  //   });
+  onTermSubmit = async term => {
+    const response = await axios.get(`https://web-production-3295.up.railway.app/brawlers/${term}` , {
+        params: {
+            q: term
+        }
+    });
 
-export default App;
+    console.log(response);
+
+    this.setState({
+      brawlers: response.data.items,
+      // selectedBrawler: response.data.items[0]
+    });
+  };
+
+// onBrawlerSelect = brawler => {
+//   this.setState({ selectedBrawler: brawler });
+// };
+
+  render() {
+    return (
+      <div>
+        <SearchBar onSubmit={this.onTermSubmit} />
+        <div>
+        <BrawlerDetail brawler={this.state.brawlers} /> 
+        </div>
+      </div>
+    );
+  }
+  }
+  export default App;
