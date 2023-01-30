@@ -1,7 +1,9 @@
-// import React from "react";
+import React from "react";
 
-// const BrawlerItem = ({ brawler, onBrawlerSelect }) => {
-//     return (
-//         <div onClick={() => onBrawlerSelect(brawler)} />
-//     )
-// }
+const BrawlerList = ({ brawler, onBrawlerSelect }) => {
+    return (
+        <div onClick={() => onBrawlerSelect(brawler)} />
+    )
+}
+
+export default BrawlerList;

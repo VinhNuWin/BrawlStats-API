@@ -1,24 +1,16 @@
 import React from "react";
-import youtube from "./apis/youtube";
 import SearchBar from "./component/SearchBar";
 import axios from 'axios';
 import BrawlerDetail from './component/BrawlerDetail';
+// import BrawlerList from './component/BrawlerList';
 
 class App extends React.Component {
-  state = { brawlers: null, selectedBrawler: null };
+  state = { brawlers: '', selectedBrawler: null };
 
   componentDidMount() {
     this.onTermSubmit();
-
-    // console.log()
   }
 
-  // onTermSubmit = async term => {
-  //   const response = await youtube.get('/search', {
-  //       params: {
-  //           q: term
-  //       }
-  //   });
   onTermSubmit = async term => {
     const response = await axios.get(`https://web-production-3295.up.railway.app/brawlers/${term}` , {
         params: {
@@ -29,7 +21,7 @@ class App extends React.Component {
     console.log(response);
 
     this.setState({
-      brawlers: response.data.items,
+      brawlers: response.data,
       // selectedBrawler: response.data.items[0]
     });
   };
@@ -40,10 +32,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div> 
         <SearchBar onSubmit={this.onTermSubmit} />
-        <div>
+        <div class="bg-gradient-to-tr from-slate-900 to-slate-900 bg-cover h-96">
+        <img 
+        src ="https://prod.assets.earlygamecdn.com/images/AllBrawlers-Banner.jpg"
+        class="object-cover absolute mix-blend-overlay h-96 w-full"/>
+        <div className=" ">
         <BrawlerDetail brawler={this.state.brawlers} /> 
+        </div>
         </div>
       </div>
     );

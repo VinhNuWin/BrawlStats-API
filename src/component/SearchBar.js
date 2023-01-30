@@ -16,14 +16,16 @@ class SearchBar extends React.Component {
 
     render() {
         return (
-        <div className="search-bar ui segment">
-            <form onSubmit={this.onFormSubmit} className="ui form">
-                <div className="field">
-                    <label>Brawler Search</label>
+        <div className="flex justify-between py-3 px-6 bg-gray-50 border-b">
+            <form onSubmit={this.onFormSubmit} className="w-full max-w-md">
+                <div >
+                    <label>Search Icon</label>
                     <input 
                     type="text" 
                     value={this.state.term}
+                    placeholder="Search Brawler"
                     onChange={e => this.setState({ term: e.target.value })}
+                    className="w-full pr-5 pl-10 px-3 py-2 font-normal placeholder-gray-500 text-black rounded-2xl border-none ring-2 ring-gray-300 focus:ring-gray-500 focus:ring-2"
                     />
                 </div>
             </form>

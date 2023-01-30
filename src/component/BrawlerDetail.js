@@ -1,16 +1,54 @@
 import React from 'react';
 
-const BrawlerDetail = ({ brawler }) => {
-    if (!brawler) {
-        return <div>Loading...</div>;
-    }
-    // const videoSrc = `https://www.youtube.com/embed/${brawler.id.videoId}`;
-    return (
-        <div>
-            <div className="ui embed">
-                <h1>Brawler</h1>Brawler
+const BrawlerDetail = props => {
+    let img = props.brawler.URL;
+
+    let img2 = props.brawler.URL2;
+
+    if (!img){
+        return <div>
+            <h3>awaiting brawler</h3>
             </div>
-        </div>
+    }
+    console.log(img);
+
+    return (
+            <div className="ml-4">
+                     <img />
+                <div className="mt-4">
+                    <img 
+                        src={img2}
+                        alt="new"
+                        className="rounded-mt-0 md:h-auto md:w-auto border-[3px] border-blue bg-blue-900 scale-100"
+                        />
+                </div>
+                <div>
+                    <h2 className="text-5xl font-bold">{props.brawler.name}</h2>
+                </div>
+                <div className="grid md:grid-cols-5 gap-4 px-16 pt-16">
+                    <div className="border py-7 px-8 rounded-xl shadow-xl ">
+                        <p className="text-2xl text-white font-bold">Damage</p> 
+                        <p className="text-gold font-bold">{props.brawler.attack}</p>
+                    </div>
+                    <div className="border py-7 px-8 rounded-xl shadow-xl">
+                        <p className="text-2xl text-white font-bold">Health</p> 
+                        <p className="text-gold font-bold">{props.brawler.health}</p>
+                    </div>
+                    <div className="border py-7 px-8 rounded-xl shadow-xl">
+                        <p className="text-2xl text-white font-bold ">Range</p>
+                        <p className="text-gold font-bold">{props.brawler.range}</p>
+                    </div>
+                    <div className="border py-7 px-8 rounded-xl shadow-xl">
+                        <p className="text-2xl text-white font-bold">Reload Speed</p>
+                        <p className="text-gold font-bold">{props.brawler.reload}</p>
+                    </div>
+                    <div className="border py-7 px-6 rounded-xl shadow-xl">
+                        <p className="text-2xl text-white font-bold">Movement Speed</p> 
+                        <p className="text-gold font-bold">{props.brawler.movement}</p>
+                    </div>
+                </div>
+            </div>
+
     );
 };
 

@@ -15,9 +15,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "tailwindcss -i .input.css -o ./css/main.css",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "watch": "tailwindcss -i .input.css -o ./css/main.css --watch"
   },
   "eslintConfig": {
     "extends": [
@@ -38,6 +39,8 @@
     ]
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
     "tailwindcss": "^3.2.4"
   }
 }
