@@ -34,16 +34,16 @@ class App extends React.Component {
     return (
       <div> 
         <SearchBar onSubmit={this.onTermSubmit} />
-        <div class="bg-gradient-to-tr from-slate-900 to-slate-900 bg-cover h-96">
-        <img 
-        src ="https://prod.assets.earlygamecdn.com/images/AllBrawlers-Banner.jpg"
-        class="object-cover absolute mix-blend-overlay h-96 w-full"/>
-        <div className=" ">
+        <div class="bg-gradient-to-tr from-gray-900 to-gray-600 h-full w-full absolute">
+          <img src ="https://prod.assets.earlygamecdn.com/images/AllBrawlers-Banner.jpg"
+          className='w-full h-full object-cover absolute mix-blend-overlay'/>
         <BrawlerDetail brawler={this.state.brawlers} /> 
         </div>
         </div>
-      </div>
     );
   }
   }
   export default App;
+
+          // src ="https://prod.assets.earlygamecdn.com/images/AllBrawlers-Banner.jpg"
+        // class="object-cover absolute mix-blend-overlay h-96 w-full"/>
