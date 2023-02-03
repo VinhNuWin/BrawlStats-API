@@ -36,7 +36,8 @@ class App extends React.Component {
         <SearchBar onSubmit={this.onTermSubmit} />
         <div class="bg-gradient-to-tr from-gray-900 to-gray-600 h-full w-full absolute">
           <img src ="https://prod.assets.earlygamecdn.com/images/AllBrawlers-Banner.jpg"
-          className='w-full h-full object-cover absolute mix-blend-overlay'/>
+          className='w-full h-full object-cover absolute mix-blend-overlay'
+          alt="background"/>
         <BrawlerDetail brawler={this.state.brawlers} /> 
         </div>
         </div>
@@ -44,6 +45,3 @@ class App extends React.Component {
   }
   }
   export default App;
-
-          // src ="https://prod.assets.earlygamecdn.com/images/AllBrawlers-Banner.jpg"
-        // class="object-cover absolute mix-blend-overlay h-96 w-full"/>
