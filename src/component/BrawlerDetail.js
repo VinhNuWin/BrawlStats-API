@@ -24,13 +24,6 @@ const BrawlerDetail = props => {
                 <div>
                     <h2 className="pl-10 pt-10 text-5xl font-bold font-kalam text-white">{props.brawler.name}</h2>
                 </div>
-                {/* <div className="float mt-4 pl-10 pt-10">
-                    <img 
-                        src={img}
-                        alt="new"
-                        className="rounded-mt-0 md:h-auto md:w-auto border-[3px] border-blue bg-blue-900 scale-100"
-                        />
-                </div> */}
                 <div className="grid md:grid-cols-5 gap-4 px-16 pt-16">
                     <div className="border py-7 px-8 rounded-xl shadow-xl ">
                         <p className="text-2xl text-white font-bold">Damage</p> 
