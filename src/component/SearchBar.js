@@ -19,7 +19,7 @@ class SearchBar extends React.Component {
         <div className="flex justify-between py-3 px-6 bg-gray-50 border-b">
             <form onSubmit={this.onFormSubmit} className="w-full max-w-md">
                 <div >
-                    <label>Search Icon</label>
+                    <label>Search Brawler</label>
                     <input 
                     type="text" 
                     value={this.state.term}
